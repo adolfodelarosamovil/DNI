@@ -2,6 +2,7 @@ package com.example.dni;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,10 +26,12 @@ public class MainActivity extends AppCompatActivity {
         float dniNumero = Float.parseFloat(dniString);
 
         int resultado = (int) (dniNumero%23);
-        Log.d("MIAPP", "resultado: " + resultado);
-        Log.d("MIAPP", "LETRA: " + array[resultado]);
 
-
+        char letra = array[resultado];
+        Log.d("MIAPP", "LETRA: " + letra);
+        Intent intent = new Intent(this, LetraAnimadaActivity.class);
+        intent.putExtra("letra", letra);
+        startActivity(intent);
 
     }
 }
